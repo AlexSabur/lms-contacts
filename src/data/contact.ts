@@ -1,4 +1,4 @@
-import { JsonProperty } from '@paddls/ts-serializer';
+import { DateConverter, JsonProperty } from '@paddls/ts-serializer';
 import { v4 as uuidv4 } from 'uuid';
 
 class Contact {
@@ -8,7 +8,8 @@ class Contact {
 
     @JsonProperty() name: string = '';
 
-    @JsonProperty() birthday: Date | null = null;
+    @JsonProperty({customConverter: () => DateConverter})
+    birthday: Date | null = null;
 
     @JsonProperty() phone: string = '';
 

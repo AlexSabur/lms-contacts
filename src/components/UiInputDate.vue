@@ -16,10 +16,10 @@ const emit = defineEmits(['update:modelValue'])
 const isElement = (element: unknown): element is HTMLInputElement => element !== null;
 
 watch(
-    () => props.modelValue,
-    (newValue) => {
-        if (isElement(input.value)) {
-            input.value.valueAsDate = newValue
+    () => [props.modelValue, input.value] as const,
+    ([newValue, input]) => {
+        if (isElement(input)) {
+            input.valueAsDate = newValue
         }
     },
     {
