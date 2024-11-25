@@ -9,7 +9,9 @@ console.log(store.contacts)
 
 <template>
     <main class="container min-full">
-        <h2>Контакты</h2>
+        <div class="py-2 px-4">
+            <h2 class="text-4xl tracking-tight font-bold">Контакты</h2>
+        </div>
 
         <div class="flex flex-col divide-y">
             <RouterLink v-for="contact in store.contacts" :key="contact.id" :to="`/contacts/${contact.id}`"

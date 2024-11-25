@@ -34,24 +34,26 @@ const submit = () => {
 
 <template>
     <main class="container min-full">
-        <h2>Редактирование</h2>
+        <div class="py-2 px-4">
+            <h2 class="text-4xl tracking-tight font-bold">Редактирование</h2>
+        </div>
 
-        <form v-if="data" class="flex flex-col gap-4" @submit.prevent="submit">
+        <form v-if="data" class="py-2 px-4 flex flex-col gap-4" @submit.prevent="submit">
             <div class="flex flex-col gap-3">
                 <UiInput v-model="data.surname">
-                    <template #label>surname</template>
+                    <template #label>Фимилия</template>
                 </UiInput>
                 <UiInput v-model="data.name">
-                    <template #label>name</template>
+                    <template #label>Имя</template>
                 </UiInput>
                 <UiInputDate v-model="data.birthday">
-                    <template #label>birthday</template>
+                    <template #label>Дата рождения</template>
                 </UiInputDate>
                 <UiInput v-model="data.phone">
-                    <template #label>phone</template>
+                    <template #label>Телефон</template>
                 </UiInput>
                 <UiInput v-model="data.email">
-                    <template #label>email</template>
+                    <template #label>Почта</template>
                 </UiInput>
                 <UiInput v-model="data.vk">
                     <template #label>vk</template>
