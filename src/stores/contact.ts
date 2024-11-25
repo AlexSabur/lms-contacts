@@ -66,6 +66,12 @@ export const useContactStore = defineStore('contact', () => {
     contacts.value = []
   }
 
+  const remove = (contact: Contact) => {
+    const store = contacts.value.filter(item => item.id !== contact.id)
+
+    contacts.value = store
+  }
+
   const find = (id: string): Contact => {
     const value = contacts.value.find(contact => contact.id === id)
 
@@ -100,6 +106,7 @@ export const useContactStore = defineStore('contact', () => {
     make,
     save,
     find,
+    remove,
     setDataFromRaw,
     getRawData,
     clear,

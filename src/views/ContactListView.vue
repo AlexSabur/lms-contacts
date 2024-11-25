@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import ListActionDelete from '@/components/contacts/ListActionDelete.vue';
 import UiButton from '@/components/UiButton.vue';
 import { useContactStore } from '@/stores/contact';
 
@@ -19,6 +20,9 @@ console.log(store.contacts)
                 <div class="flex flex-col gap-1">
                     <div class="text-base">{{ contact.name }}</div>
                     <div class="text-sm text-gray-800">{{ contact.surname }}</div>
+                </div>
+                <div>
+                    <ListActionDelete :contact="contact" />
                 </div>
             </RouterLink>
         </div>

@@ -2,6 +2,7 @@
 import UiButton from '@/components/UiButton.vue';
 import UiInput from '@/components/UiInput.vue';
 import UiInputDate from '@/components/UiInputDate.vue';
+import UiInputPhone from '@/components/UiInputPhone.vue';
 import Contact from '@/data/contact';
 import { useContactStore } from '@/stores/contact';
 import { ref, watch } from 'vue';
@@ -49,9 +50,9 @@ const submit = () => {
                 <UiInputDate v-model="data.birthday">
                     <template #label>Дата рождения</template>
                 </UiInputDate>
-                <UiInput v-model="data.phone">
+                <UiInputPhone v-model="data.phone">
                     <template #label>Телефон</template>
-                </UiInput>
+                </UiInputPhone>
                 <UiInput v-model="data.email">
                     <template #label>Почта</template>
                 </UiInput>
