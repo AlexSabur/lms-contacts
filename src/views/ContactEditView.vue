@@ -25,8 +25,13 @@ watch(() => route.params.id, (id) => {
     }
 }, { immediate: true })
 
+const isElement = (element: unknown): element is HTMLFormElement => element !== null;
 
-const submit = () => {
+const submit = (event: Event) => {
+    if (isElement(event.target) && !event.target.checkValidity()) {
+        return;
+    }
+
     store.save(data.value)
 
     router.push('/')
@@ -41,11 +46,11 @@ const submit = () => {
 
         <form v-if="data" class="py-2 px-4 flex flex-col gap-4" @submit.prevent="submit">
             <div class="flex flex-col gap-3">
-                <UiInput v-model="data.surname">
-                    <template #label>Фимилия</template>
-                </UiInput>
-                <UiInput v-model="data.name">
+                <UiInput :minlength="1" v-model="data.name" required>
                     <template #label>Имя</template>
+                </UiInput>
+                <UiInput :minlength="1" v-model="data.surname" required>
+                    <template #label>Фимилия</template>
                 </UiInput>
                 <UiInputDate v-model="data.birthday">
                     <template #label>Дата рождения</template>
@@ -53,7 +58,7 @@ const submit = () => {
                 <UiInputPhone v-model="data.phone">
                     <template #label>Телефон</template>
                 </UiInputPhone>
-                <UiInput v-model="data.email">
+                <UiInput v-model="data.email" type="email">
                     <template #label>Почта</template>
                 </UiInput>
                 <UiInput v-model="data.vk">

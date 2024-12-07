@@ -6,6 +6,8 @@ interface Props {
     type?: InputHTMLAttributes['type']
     placeholder?: InputHTMLAttributes['placeholder']
     modelValue: string;
+    required?: boolean;
+    minlength?: number;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -23,7 +25,7 @@ const data = useVModel(props, 'modelValue', emit)
             <slot name="label" />
         </label>
 
-        <input v-model="data" :type="props.type" :placeholder="props.placeholder"
+        <input :minlength="minlength" :required="required" v-model="data" :type="props.type" :placeholder="props.placeholder"
             class="mt-2 block w-full placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 " />
 
         <!-- <p class="mt-3 text-xs text-gray-400 ">Lorem ipsum dolor sit amet consectetur adipisicing

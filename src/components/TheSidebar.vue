@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import TheBirthday from './sidebar/TheBirthday.vue';
 import SidebarLink from './SidebarLink.vue';
 </script>
 
@@ -25,5 +26,6 @@ import SidebarLink from './SidebarLink.vue';
             </ul>
         </div>
 
+        <TheBirthday />
     </div>
 </template>

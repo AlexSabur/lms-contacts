@@ -7,7 +7,11 @@ const store = useContactStore()
 
 const { handle, pending } = useButtonHandler({
     handler: function handler() {
-        store.clear();
+        const submit = window.confirm('Вы уверены что хотите удалить все контакты?');
+
+        if (submit) {
+            store.clear();
+        }
     }
 })
 </script>
