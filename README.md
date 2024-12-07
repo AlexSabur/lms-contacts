@@ -1,22 +1,22 @@
 # lms-contacts
 
-## Recommended IDE Setup
+## Рекомендуемая настройка IDE
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (и отключите Vetur).
 
-## Project Setup
+## Настройка проекта
 
 ```sh
 bun install
 ```
 
-### Compile and Hot-Reload for Development
+### Компиляция и горячая перезагрузка для разработки
 
 ```sh
 bun dev
 ```
 
-### Type-Check, Compile and Minify for Production
+### Проверка типов, компиляция и минимизация для продакшена
 
 ```sh
 bun build
