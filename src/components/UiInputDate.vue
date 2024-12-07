@@ -19,6 +19,8 @@ watch(
     () => [props.modelValue, input.value] as const,
     ([newValue, input]) => {
         if (isElement(input)) {
+            input.max = new Date().toISOString().split("T")[0];
+
             input.valueAsDate = newValue
         }
     },
@@ -29,7 +31,19 @@ watch(
 
 const updateValue = (event: Event) => {
     if (isElement(event.currentTarget)) {
-        const value = event.currentTarget.valueAsDate || null;
+        let value = event.currentTarget.valueAsDate || null;
+
+        // Если дата больше текущей, установить сегодняшний день
+        if (value !== null) {
+            const today = new Date();
+
+            today.setHours(0, 0, 0, 0);
+            value.setHours(0, 0, 0, 0);
+
+            if (value > today) {
+                value = today;
+            }
+        }
 
         emit('update:modelValue', value)
     }
