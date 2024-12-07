@@ -32,7 +32,7 @@ const { handle, pending } = useButtonHandler({
     <div class="flex py-2 px-4 gap-3 justify-between">
         <div class="flex flex-col gap-1">
             <div class="text-base">Загрузить книгу</div>
-            <div class="text-sm text-gray-800">Загрузает книгу из резевной копии</div>
+            <div class="text-sm text-gray-800">Загружает книгу из резевной копии</div>
         </div>
         <div>
             <UiButton :disabled="pending" @click="handle">Загрузить</UiButton>
